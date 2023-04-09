@@ -28,14 +28,14 @@ RUN cd build && cmake .. && cmake --build . && cpack
 
 FROM ubuntu:focal
 
-COPY --from=builder /fwbuilder/fwbuilder_6.0.0-beta-1_amd64.deb /
+COPY --from=builder /fwbuilder/build/firewallbuilder-0.1.1-Linux.deb /
 
 RUN apt-get update &&\
-    apt-get install -y --no-install-recommends libxml2 libxslt1.1 libsnmp30 libqt5printsupport5 &&\
+    apt-get install -y --no-install-recommends libxml2 libxslt1.1 libsnmp35 libqt5printsupport5 &&\
     rm -rf /var/lib/apt/lists/*
 
-RUN dpkg -i /fwbuilder_6.0.0-beta-1_amd64.deb &&\
-    rm /fwbuilder_6.0.0-beta-1_amd64.deb
+RUN apt install /firewallbuilder-0.1.1-Linux.deb &&\
+    rm /firewallbuilder-0.1.1-Linux.deb
 
 RUN useradd -m -d /home/fwbuilder fwbuilder
 

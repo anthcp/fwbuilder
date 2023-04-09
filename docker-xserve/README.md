@@ -5,8 +5,9 @@
 ```bash
 APP_VERSION=dev docker build --build-arg APP_VERSION=$APP_VERSION -t fwbuilder .
 ```
-## For Dev
 
+## For Dev
+xhost +localhost 
 ```bash
 docker run -e "DISPLAY=host.docker.internal:0" -v /tmp/.X11-unix:/tmp/.X11-unix  --rm -ti --net host ubuntu:focal
 ```

@@ -119,5 +119,5 @@ add_subdirectory(src/unit_tests)
 add_subdirectory(packaging)
 SET(CPACK_GENERATOR "DEB")
 SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "anthcp") #required
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libxml2, libxslt, libsnmp, qt5-default")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "libxml2, libxslt1.1, libsnmp35, libqt5printsupport5")
 INCLUDE(CPack)
