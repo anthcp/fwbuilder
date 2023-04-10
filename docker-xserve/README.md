@@ -6,13 +6,14 @@
 APP_VERSION=dev docker build --build-arg APP_VERSION=$APP_VERSION -t fwbuilder .
 ```
 
-## For Dev
-xhost +localhost 
+## For Dev using XQuartz on mac
+
 ```bash
+xhost +localhost 
 docker run  --privileged -e "DISPLAY=host.docker.internal:0" -v /tmp/.X11-unix:/tmp/.X11-unix  --rm -ti --net host ubuntu:focal
 ```
 
-## How to run
+## How to run using XQuartz on mac
 
 Connecting a container to a host's X server for display
 
